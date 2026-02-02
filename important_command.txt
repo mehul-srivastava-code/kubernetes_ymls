@@ -1,0 +1,7 @@
+kubectl cluster -info
+kubectl config current-context
+kind create cluster --config your.yml
+kubectl config use-context clustername
+kubectl config get-context
+kubectl get pods nginx-pod --show-lables
+kubectl get nodes/pods -o wide

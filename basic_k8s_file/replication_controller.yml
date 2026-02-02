@@ -1,0 +1,21 @@
+#this file is used for replication controll so that if resource srinks for one node a new can be created 
+#legacy version works on same group pods no new pods can be added 
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: ngnix-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ngnix-rs
+  template:
+    metadata:
+      labels:
+        app: ngnix-rs
+    spec:
+      containers:
+      - name: ngnix
+        image: nginx:1.25
+        ports:
+        - containerPort: 80    
