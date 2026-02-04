@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthprobe-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template: 
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: healthprobe-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80  
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: / 
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 10  

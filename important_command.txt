@@ -5,3 +5,13 @@ kubectl config use-context clustername
 kubectl config get-context
 kubectl get pods nginx-pod --show-lables
 kubectl get nodes/pods -o wide
+kubectl cluster-info dump
+kubectl config get-contexts
+kubectl config get-clusters
+--system-reserved=cpu=500m,memory=1Gi
+--kube-reserved=cpu=500m,memory=1Gi
+kubectl label node scaling-control-plane type=frontend
+kubectl taint nodes scaling-worker dedicated=backend:NoSchedule
+kubectl taint nodes scaling-worker dedicated=backend:NoSchedule-(untaint)
+kubectl scale deployment frontend --replicas=5
+
