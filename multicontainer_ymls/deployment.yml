@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: mssql
 spec:
   selector:
     matchLabels:
@@ -9,10 +9,11 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx
+        app: mysql
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
+      - name: mysql
+        image: mcr.microsoft.com/mssql/server:2022-latest
+
         ports:
-        - containerPort: 80
+        - containerPort: 1433

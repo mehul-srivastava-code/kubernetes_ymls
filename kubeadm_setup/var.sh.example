@@ -1,0 +1,8 @@
+# Azure Service Principal credentials
+# Copy this file to var.sh and fill in your actual values
+# var.sh is gitignored to prevent accidental commit of secrets
+
+export SUBSCRIPTION_ID="YOUR_SUBSCRIPTION_ID"
+export CLIENT_ID="YOUR_CLIENT_ID"
+export CLIENT_SECRET="YOUR_CLIENT_SECRET"
+export TENANT_ID="YOUR_TENANT_ID"
